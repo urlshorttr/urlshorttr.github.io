@@ -1,0 +1,12 @@
+---
+layout: default
+title: "Guides: Short Links and QR Codes"
+description: "Plain guides on shortening links, making QR codes, checking that a short link is safe, and printing codes that scan."
+permalink: /blog/
+nav: blog
+---
+<h1>Guides</h1>
+<p class="lead page-intro">Short, practical articles about links and QR codes.</p>
+<ul class="rows">
+{% for post in site.posts %}<li><a href="{{ post.url | relative_url }}"><span class="row-date">{{ post.date | date: "%B %-d, %Y" }}</span><span class="row-title">{{ post.title }}</span><span class="row-desc">{{ post.description }}</span></a></li>
+{% endfor %}</ul>
