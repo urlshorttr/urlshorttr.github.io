@@ -1,0 +1,52 @@
+# ------------------------------------------------------------------
+# Site settings. Only these lines are meant to be edited by hand.
+# ------------------------------------------------------------------
+
+# Your address. Keep baseurl empty when the site lives on a domain
+# or on https://USERNAME.github.io (repository named USERNAME.github.io).
+url: "https://urlshort.tr"
+baseurl: ""
+
+title: URLShort
+tagline: Free URL shortener and QR code generator
+description: "Shorten long links and download a QR code for them as PNG or SVG. Free, no sign-up, and the QR code is made in your browser."
+lang: en
+image: /og.png
+email: "contact@urlshort.tr"          # change to a mailbox you really read
+
+# ---- Link service ------------------------------------------------------
+# Address of your Cloudflare Worker, e.g. "https://urlshort.tr/api/shorten"
+# (or "https://NAME.ACCOUNT.workers.dev/api/shorten" before the domain is connected).
+shortener_api: "https://urlshort.urlshortener-tr.workers.dev/api/shorten"
+
+# ---- Google AdSense (auto ads) ---------------------------------------
+# Paste your publisher ID once, e.g. "ca-pub-1234567890123456".
+# Leave it empty until AdSense approves the site. Nothing is shown while it is empty.
+adsense_client: ""
+
+# ---- Search Console / Bing verification ------------------------------
+# Paste ONLY the code from the "HTML tag" method (the content="..." value).
+webmaster_verifications:
+  google: ""
+  bing: ""
+
+# Posts: URL becomes /blog/your-post-name/
+permalink: /blog/:title/
+future: true
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      nav: "blog"
+
+# Files that are for you, not for visitors
+exclude:
+  - HOW-TO-ADD-POST.md
+  - README.md

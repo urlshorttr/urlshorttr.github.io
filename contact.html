@@ -1,0 +1,16 @@
+---
+layout: default
+title: "Contact URLShort"
+description: "Send a question, a correction or a report about a link to the URLShort team."
+---
+<h1>Contact</h1>
+<div class="prose">
+<p>Write to us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or use the form below. It opens your email app with the message filled in.</p>
+<p>We can help with questions about the tools and corrections to the guides. To report a harmful short link, write to us and include the full short link. We remove links used for scams, malware or other abuse. Short links cannot be edited after they are made.</p>
+</div>
+<form id="contactForm" class="contact-form" data-to="{{ site.email }}">
+<div><label for="cname">Your name</label><input id="cname" name="name" type="text" autocomplete="name" required></div>
+<div><label for="cemail">Your email (optional)</label><input id="cemail" name="email" type="email" autocomplete="email"></div>
+<div><label for="cmsg">Message</label><textarea id="cmsg" name="message" required></textarea></div>
+<div><button class="btn" type="submit">Write message</button></div>
+</form>
