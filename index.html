@@ -1,0 +1,91 @@
+---
+layout: default
+title: "Free URL Shortener & QR Code Generator"
+description: "Shorten long links in one click and download a QR code for them as PNG or SVG. Free, no sign-up, and the QR code is made in your browser."
+nav: shorten
+tool: shortener
+scripts: [qrcode.js, qrtool.js, shortener.js]
+---
+<section class="hero">
+<h1>Shorten a link. Get a QR code for it.</h1>
+<p class="lead">Paste a long web address and get a short one you can copy, share or print. The QR code is drawn on your device and downloads as PNG or SVG. No account needed.</p>
+
+<form id="shortenForm" class="shorten" novalidate>
+<label class="sr-only" for="longUrl">Link to shorten</label>
+<div class="bar">
+<input id="longUrl" name="url" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://example.com/a/very/long/page?with=parameters">
+<button id="shortenBtn" class="btn" type="submit">Shorten link</button>
+</div>
+<details class="opt">
+<summary>Choose your own ending (optional)</summary>
+<div class="opt-body">
+<label for="alias">Custom ending</label>
+<input id="alias" name="alias" type="text" maxlength="30" autocomplete="off" spellcheck="false" placeholder="my_launch_page">
+<p class="hint">5 to 30 letters, numbers or underscores. The short link becomes is.gd/your_ending. If it is already taken, pick another.</p>
+</div>
+</details>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+</form>
+
+<div id="result" class="result" hidden>
+<div class="res-main">
+<p id="resLong" class="res-long"></p>
+<a id="shortLink" class="short" href="#" target="_blank" rel="noopener"></a>
+<div class="res-actions">
+<button id="copyBtn" class="btn" type="button">Copy link</button>
+<a id="openLink" class="btn ghost" href="#" target="_blank" rel="noopener">Open link</a>
+</div>
+</div>
+<div class="res-qr">
+<canvas id="qrCanvas" width="240" height="240" role="img" aria-label="QR code for your short link"></canvas>
+<div class="dl">
+<button id="dlPng" class="btn" type="button">Download PNG</button>
+<button id="dlSvg" class="btn ghost" type="button">Download SVG</button>
+</div>
+</div>
+</div>
+
+<section id="recent" class="recent" hidden>
+<h2>Recent links on this device</h2>
+<ul id="recentList"></ul>
+<p class="hint">These are saved only in this browser. <button id="clearRecent" type="button" class="linkish">Clear list</button></p>
+</section>
+</section>
+
+<h2>How it works</h2>
+<ol class="steps">
+<li><b>Paste your link</b><span>Any http or https address works, including long ones full of tracking parameters.</span></li>
+<li><b>Shorten it</b><span>The link goes to the free is.gd service, which sends back a short one. Add your own ending if you want it readable.</span></li>
+<li><b>Copy or scan</b><span>Copy the short link, or download its QR code for a flyer, menu, slide or product label.</span></li>
+</ol>
+
+<h2>When a short link helps</h2>
+<dl class="defs">
+<dt>Messages and profiles</dt>
+<dd>A short link takes less room in a bio, a text or a caption, and it does not wrap across three lines.</dd>
+<dt>Anything printed</dt>
+<dd>A QR code for a short link has fewer, larger squares than one for a long address, so it is easier to scan from a distance or on a small label. Read <a href="{{ '/blog/qr-code-size-and-contrast-guide/' | relative_url }}">our print guide</a> before you send a design to the printer.</dd>
+<dt>Slides, videos and podcasts</dt>
+<dd>People can type a short link from a screen, and you can say it out loud without reading a paragraph of characters.</dd>
+<dt>Tidying a messy address</dt>
+<dd>Links copied from shops, maps and search results often carry long strings after a question mark. A short link hides that clutter when you share it.</dd>
+</dl>
+
+<h2>What to know before you use it</h2>
+<ul class="prose-list">
+<li>Short links are created by is.gd, so they start with <code>is.gd</code>, not with this site&rsquo;s name. This site provides the tool, the QR code and the guides.</li>
+<li>The service says its links do not expire, and a link cannot be edited after it is made. Check the address before you press the button.</li>
+<li>Anyone who has a short link can open it. Do not shorten pages that are meant to be private.</li>
+<li>You do not need an account, and this site has no click statistics for your links.</li>
+<li>The short link always shows the final address after you open it, and you can preview it first by adding a dash (-) to the end of an is.gd link. Our guide on <a href="{{ '/blog/are-short-links-safe/' | relative_url }}">checking short links</a> explains how.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<details><summary>Is this URL shortener free?</summary><p>Yes. There is nothing to pay and no sign-up. The site is supported by advertising.</p></details>
+<details><summary>Do the short links expire?</summary><p>The shortening service, is.gd, says it does not remove links that were created within its terms, and that it expects them to last. Nobody can promise forever, so keep the original address somewhere safe for anything important.</p></details>
+<details><summary>Can I change where a short link goes?</summary><p>No. A short link points to the address it was made with. If the destination page moves, create a new short link and replace the old one.</p></details>
+<details><summary>Why does the short link start with is.gd and not urlshort.tr?</summary><p>Links are created by the is.gd service. This website is the tool you use to make them and the place where the QR code is generated. It does not run its own link database.</p></details>
+<details><summary>Do you store the links I shorten?</summary><p>This site has no accounts and no database of links. The address you enter is sent to is.gd to create the short link. A short history of your recent links is kept in your own browser, and you can clear it at any time.</p></details>
+<details><summary>Will the QR code work on every phone?</summary><p>It is a standard QR code, so current phone cameras and scanner apps read it. Always test a code on a phone before you print it, and leave the white border around it in place.</p></details>
+<details><summary>Can I use the QR code on printed material or products?</summary><p>Yes. Download the SVG if the printer asks for a vector file, or the PNG for documents and screens. Make sure you are allowed to link to the page the code points to.</p></details>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this URL shortener free?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is nothing to pay and no sign-up. The site is supported by advertising."}},{"@type":"Question","name":"Do the short links expire?","acceptedAnswer":{"@type":"Answer","text":"The shortening service, is.gd, says it does not remove links that were created within its terms, and that it expects them to last. Nobody can promise forever, so keep the original address somewhere safe for anything important."}},{"@type":"Question","name":"Can I change where a short link goes?","acceptedAnswer":{"@type":"Answer","text":"No. A short link points to the address it was made with. If the destination page moves, create a new short link and replace the old one."}},{"@type":"Question","name":"Why does the short link start with is.gd and not urlshort.tr?","acceptedAnswer":{"@type":"Answer","text":"Links are created by the is.gd service. This website is the tool you use to make them and the place where the QR code is generated. It does not run its own link database."}},{"@type":"Question","name":"Do you store the links I shorten?","acceptedAnswer":{"@type":"Answer","text":"This site has no accounts and no database of links. The address you enter is sent to is.gd to create the short link. A short history of your recent links is kept in your own browser, and you can clear it at any time."}},{"@type":"Question","name":"Will the QR code work on every phone?","acceptedAnswer":{"@type":"Answer","text":"It is a standard QR code, so current phone cameras and scanner apps read it. Always test a code on a phone before you print it, and leave the white border around it in place."}},{"@type":"Question","name":"Can I use the QR code on printed material or products?","acceptedAnswer":{"@type":"Answer","text":"Yes. Download the SVG if the printer asks for a vector file, or the PNG for documents and screens. Make sure you are allowed to link to the page the code points to."}}]}</script>
