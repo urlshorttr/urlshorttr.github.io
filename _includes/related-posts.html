@@ -1,8 +1,0 @@
-{% assign found = 0 %}{% capture related_html %}{% for p in site.posts %}{% if p.tools contains page.tool %}{% assign found = found | plus: 1 %}
-<li><a href="{{ p.url | relative_url }}"><span class="row-title">{{ p.title }}</span><span class="row-desc">{{ p.description }}</span></a></li>{% endif %}{% endfor %}{% endcapture %}
-{% if found > 0 %}
-<section class="more">
-<h2>Guides for this tool</h2>
-<ul class="rows">{{ related_html }}</ul>
-</section>
-{% endif %}
