@@ -1,0 +1,12 @@
+---
+title: "Page title here"
+description: "One or two sentences for Google (under 160 letters)."
+---
+Write the page text here. Same format as a post.
+
+## A heading
+
+Normal text, [a link](/blog/), and a list:
+
+- one
+- two
