@@ -96,7 +96,7 @@ def footer(c, page):
       '<div><h2 class="foot-h">%s</h2><ul>%s<li><a href="/blog/"%s>%s</a></li></ul></div>'
       '<div><h2 class="foot-h">%s</h2><ul><li><a href="/about/"%s>%s</a></li><li><a href="/editorial-policy/"%s>%s</a></li><li><a href="/contact/"%s>%s</a></li><li><a href="/privacy/"%s>%s</a></li><li><a href="/terms/"%s>%s</a></li><li><a href="/disclaimer/"%s>%s</a></li></ul></div>'
       '</div><div class="foot-lang"><h2 class="foot-h">%s</h2>%s</div>%s%s'
-      '<p class="copy">&copy; <span class="js-year">%s</span> urlshort.tr. %s</p></div></footer>') % (
+      '<p class="copy">Copyright &copy; <span class="js-year">%s</span> urlshort.tr. %s</p></div></footer>') % (
       esc(t['foot_tag']), esc(t['foot_tools']),
       url_of(c, 'home'), esc(t['foot_shortener']), url_of(c, 'qr'), esc(t['foot_qr']), url_of(c, 'check'), esc(t['foot_check']), en, esc(t['foot_report']),
       esc(t['foot_latest']), latest, en, esc(t['foot_all_guides']),
