@@ -92,7 +92,7 @@ def footer(c, page):
     note = ('<p class="en-only">%s</p>' % esc(t['foot_note'])) if c != 'en' else ''
     return ('<footer class="site-footer"><div class="wrap"><div class="foot-grid">'
       '<div class="foot-about"><p class="foot-brand">urlshort<span class="logo-tld">.tr</span></p><p>%s</p></div>'
-      '<div><h2 class="foot-h">%s</h2><ul><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="/report-link/"%s>%s</a></li></ul></div>'
+      '<div><h2 class="foot-h">%s</h2><ul><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="/report-link/"%s>%s</a></li><li><a href="/link-click-counter/" lang="en">Click counter</a></li></ul></div>'
       '<div><h2 class="foot-h">%s</h2><ul>%s<li><a href="/blog/"%s>%s</a></li></ul></div>'
       '<div><h2 class="foot-h">%s</h2><ul><li><a href="/about/"%s>%s</a></li><li><a href="/editorial-policy/"%s>%s</a></li><li><a href="/contact/"%s>%s</a></li><li><a href="/privacy/"%s>%s</a></li><li><a href="/terms/"%s>%s</a></li><li><a href="/disclaimer/"%s>%s</a></li></ul></div>'
       '</div><div class="foot-lang"><h2 class="foot-h">%s</h2>%s</div>%s%s'
