@@ -32,7 +32,7 @@ ui:
   foot_disclaimer: "Disclaimer"
   foot_languages: "Languages"
   foot_note: "Guides and policy pages are available in English only."
-  copyright: "All Rights Reserved. “QR Code” is a registered trademark of Denso Wave Incorporated."
+  copyright: "“QR Code” is a registered trademark of Denso Wave Incorporated."
   related_h: "Guides for this tool"
   related_note: "(in English)"
 home:
