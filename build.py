@@ -96,12 +96,12 @@ def footer(c, page):
       '<div><h2 class="foot-h">%s</h2><ul>%s<li><a href="/blog/"%s>%s</a></li></ul></div>'
       '<div><h2 class="foot-h">%s</h2><ul><li><a href="/about/"%s>%s</a></li><li><a href="/editorial-policy/"%s>%s</a></li><li><a href="/contact/"%s>%s</a></li><li><a href="/privacy/"%s>%s</a></li><li><a href="/terms/"%s>%s</a></li><li><a href="/disclaimer/"%s>%s</a></li></ul></div>'
       '</div><div class="foot-lang"><h2 class="foot-h">%s</h2>%s</div>%s%s'
-      '<p class="copy">Copyright &copy; <span class="js-year">%s</span> urlshort.tr. %s</p></div></footer>') % (
+      '<p class="copy">Copyright&copy; <span class="js-year">%s</span> urlshort.tr. All Rights Reserved.</p></div></footer>') % (
       esc(t['foot_tag']), esc(t['foot_tools']),
       url_of(c, 'home'), esc(t['foot_shortener']), url_of(c, 'qr'), esc(t['foot_qr']), url_of(c, 'check'), esc(t['foot_check']), en, esc(t['foot_report']),
       esc(t['foot_latest']), latest, en, esc(t['foot_all_guides']),
       esc(t['foot_site']), en, esc(t['foot_about']), en, esc(t['foot_editorial']), en, esc(t['foot_contact']), en, esc(t['foot_privacy']), en, esc(t['foot_terms']), en, esc(t['foot_disclaimer']),
-      esc(t['foot_languages']), langmenu(c, page, 'foot'), social_html(), note, TODAY[:4], esc(t['copyright']))
+      esc(t['foot_languages']), langmenu(c, page, 'foot'), social_html(), note, TODAY[:4])
 
 def page_html(c, page, body, jsfiles=(), tstrings=None):
     """page: dict(title, description, path, tkey, nav, noindex, schema=[...], og_type)"""
@@ -247,7 +247,8 @@ def build_qr(c):
 <dl class="defs"><dt>{esc(q['png_t'])}</dt><dd>{esc(q['png_d'])}</dd><dt>{esc(q['svg_t'])}</dt><dd>{esc(q['svg_d'])}</dd></dl>
 <h2>{esc(q['tips_h'])}</h2><ul class="prose">{tips}</ul>
 {extra_html(q, c)}<h2>{esc(q['faq_h'])}</h2>{faq_html(q['faq'], c)}
-{guides_for('qr', c)}'''
+{guides_for('qr', c)}
+<p class="hint">{esc(L['ui']['copyright'])}</p>'''
     page = dict(title=m['qr_title'], description=m['qr_desc'], path=path, tkey='qr', nav='qr', tool='qr',
                 schema=[app_ld(c, m['qr_title'], m['qr_desc'], path), faq_ld(q['faq'], c),
                         crumbs_ld([(L['ui']['nav_shorten'], url_of(c, 'home')), (q['h1'], path)])])
