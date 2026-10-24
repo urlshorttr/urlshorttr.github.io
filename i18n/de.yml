@@ -95,7 +95,7 @@ home:
     - q: "Kann ich das Ziel eines Kurzlinks ändern?"
       a: "Nein. Ein Kurzlink zeigt auf die Adresse, mit der er erstellt wurde. Zieht die Zielseite um, erstellen Sie einen neuen Kurzlink und ersetzen Sie den alten."
     - q: "Verfolgen Sie Klicks?"
-      a: "Nein. Der Dienst zählt keine Klicks und erstellt keine Profile der Personen, die einen Link öffnen."
+      a: "Wir zählen, wie oft jeder Kurzlink geöffnet wird, und zeigen die Summe auf der Seite des Klickzählers. Der Zähler speichert nur eine Zahl pro Link. Er speichert keine IP-Adressen und erstellt keine Profile der Personen, die einen Link öffnen. Suchmaschinen-Roboter und Link-Vorschauen werden nicht gezählt."
     - q: "Speichern Sie die Links, die ich kürze?"
       a: "Ja, die Adresse und ihr kurzes Ende werden in unserem Link-Dienst gespeichert, denn so funktioniert die Weiterleitung. Es gibt keine Konten. Ein kurzer Verlauf Ihrer letzten Links liegt außerdem in Ihrem eigenen Browser und lässt sich jederzeit löschen."
     - q: "Funktioniert der QR-Code auf jedem Handy?"

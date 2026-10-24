@@ -95,7 +95,7 @@ home:
     - q: "Puis-je changer la destination d'un lien court ?"
       a: "Non. Un lien court pointe vers l'adresse avec laquelle il a été créé. Si la page de destination change, créez un nouveau lien court et remplacez l'ancien."
     - q: "Suivez-vous les clics ?"
-      a: "Non. Le service ne compte pas les clics et ne crée pas de profil des personnes qui ouvrent un lien."
+      a: "Nous comptons combien de fois chaque lien court est ouvert et affichons le total sur la page du compteur de clics. Le compteur ne conserve qu'un nombre par lien. Il n'enregistre pas les adresses IP et ne crée pas de profil des personnes qui ouvrent un lien. Les robots des moteurs de recherche et les aperçus de liens ne sont pas comptés."
     - q: "Conservez-vous les liens que je raccourcis ?"
       a: "Oui, l'adresse et sa fin courte sont enregistrées sur notre service de liens, car c'est ainsi que fonctionne la redirection. Il n'y a pas de comptes. Un court historique de vos liens récents est aussi conservé dans votre navigateur, et vous pouvez l'effacer à tout moment."
     - q: "Le QR code fonctionnera-t-il sur tous les téléphones ?"

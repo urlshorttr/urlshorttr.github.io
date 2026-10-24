@@ -95,7 +95,7 @@ home:
     - q: "Posso mudar o destino de um link curto?"
       a: "Não. Um link curto aponta para o endereço com o qual foi criado. Se a página de destino mudar, crie um novo link curto e substitua o antigo."
     - q: "Vocês rastreiam os cliques?"
-      a: "Não. O serviço não conta cliques nem cria perfil de quem abre um link."
+      a: "Contamos quantas vezes cada link curto é aberto e mostramos o total na página do contador de cliques. O contador guarda apenas um número por link. Não guarda endereços IP nem cria perfil de quem abre um link. Robôs de buscadores e pré-visualizações de links não são contados."
     - q: "Vocês guardam os links que eu encurto?"
       a: "Sim, o endereço e o final curto ficam salvos no nosso serviço de links, porque é assim que o redirecionamento funciona. Não há contas. Um pequeno histórico dos seus links recentes também fica no seu navegador, e você pode apagá-lo quando quiser."
     - q: "O QR Code funciona em todos os celulares?"

@@ -95,7 +95,7 @@ home:
     - q: "Kısa bağlantının gittiği yeri değiştirebilir miyim?"
       a: "Hayır. Kısa bağlantı, oluşturulduğu adrese gider. Hedef sayfa taşınırsa yeni bir kısa bağlantı oluşturup eskisinin yerine kullanın."
     - q: "Tıklamaları izliyor musunuz?"
-      a: "Hayır. Hizmet tıklamaları saymaz ve bağlantıyı açan kişilerin profilini çıkarmaz."
+      a: "Her kısa bağlantının kaç kez açıldığını sayar ve toplamı tıklama sayacı sayfasında gösteririz. Sayaç her bağlantı için yalnızca bir sayı saklar. IP adreslerini kaydetmez ve bağlantıyı açan kişilerin profilini çıkarmaz. Arama motoru robotları ve bağlantı önizlemeleri sayılmaz."
     - q: "Kısalttığım bağlantıları saklıyor musunuz?"
       a: "Evet, yönlendirme bu şekilde çalıştığı için adres ve kısa uzantısı bağlantı hizmetimizde saklanır. Hesap yoktur. Son bağlantılarınızın kısa bir geçmişi de tarayıcınızda tutulur ve istediğiniz zaman silebilirsiniz."
     - q: "QR kod her telefonda çalışır mı?"

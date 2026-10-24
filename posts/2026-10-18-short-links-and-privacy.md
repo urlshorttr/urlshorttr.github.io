@@ -19,7 +19,7 @@ Beyond that, services differ. Some count clicks, record the country or device of
 - how long data is kept;
 - how to ask for a link to be removed.
 
-On this site the address and short ending are stored, no accounts exist and visits are not counted. To limit abuse, the service temporarily counts how many links a single connection creates in an hour. Our [privacy policy](/privacy/) has the details.
+On this site the address and short ending are stored, no accounts exist and only a click total is kept for each link, with no IP addresses or personal details. To limit abuse, the service temporarily counts how many links a single connection creates in an hour. Our [privacy policy](/privacy/) has the details.
 
 ## A short link is not a private link
 

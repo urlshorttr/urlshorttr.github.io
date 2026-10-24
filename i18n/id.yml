@@ -95,7 +95,7 @@ home:
     - q: "Bisakah saya mengubah tujuan tautan pendek?"
       a: "Tidak. Tautan pendek mengarah ke alamat saat tautan itu dibuat. Jika halaman tujuan pindah, buat tautan pendek baru dan gantikan yang lama."
     - q: "Apakah Anda melacak klik?"
-      a: "Tidak. Layanan ini tidak menghitung klik dan tidak membuat profil orang yang membuka tautan."
+      a: "Kami menghitung berapa kali setiap tautan pendek dibuka dan menampilkan totalnya di halaman penghitung klik. Penghitung hanya menyimpan satu angka untuk setiap tautan. Alamat IP tidak disimpan dan tidak ada profil orang yang membuka tautan. Robot mesin pencari dan pratinjau tautan tidak dihitung."
     - q: "Apakah Anda menyimpan tautan yang saya pendekkan?"
       a: "Ya, alamat dan akhiran pendeknya disimpan di layanan tautan kami, karena begitulah cara pengalihan bekerja. Tidak ada akun. Riwayat singkat tautan terbaru Anda juga disimpan di browser Anda, dan bisa dihapus kapan saja."
     - q: "Apakah kode QR berfungsi di semua ponsel?"

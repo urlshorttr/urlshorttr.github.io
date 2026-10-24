@@ -95,7 +95,7 @@ home:
     - q: "Can I change where a short link goes?"
       a: "No. A short link points to the address it was made with. If the destination page moves, create a new short link and replace the old one."
     - q: "Do you track clicks?"
-      a: "No. The service does not count clicks or build a profile of the people who open a link."
+      a: "We count how many times each short link is opened and show the total on the click counter page. The counter stores only a number for each link. It does not save IP addresses or build a profile of the people who open a link. Search engine robots and link previews are not counted."
     - q: "Do you store the links I shorten?"
       a: "Yes, the address and its short ending are saved on our link service, because that is how the redirect works. There are no accounts. A short history of your recent links is also kept in your own browser, and you can clear it at any time."
     - q: "Will the QR code work on every phone?"

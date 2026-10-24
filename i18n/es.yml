@@ -95,7 +95,7 @@ home:
     - q: "¿Puedo cambiar el destino de un enlace corto?"
       a: "No. Un enlace corto apunta a la dirección con la que se creó. Si la página de destino cambia, crea un enlace nuevo y sustituye el anterior."
     - q: "¿Rastreáis los clics?"
-      a: "No. El servicio no cuenta clics ni crea un perfil de quienes abren un enlace."
+      a: "Contamos cuántas veces se abre cada enlace corto y mostramos el total en la página del contador de clics. El contador guarda solo un número por enlace. No guarda direcciones IP ni crea un perfil de quienes abren un enlace. Los robots de buscadores y las vistas previas de enlaces no se cuentan."
     - q: "¿Guardáis los enlaces que acorto?"
       a: "Sí, la dirección y su final corto se guardan en nuestro servicio de enlaces, porque así funciona la redirección. No hay cuentas. También se guarda en tu navegador un breve historial de tus enlaces recientes, que puedes borrar cuando quieras."
     - q: "¿Funcionará el código QR en todos los teléfonos?"
