@@ -143,7 +143,7 @@ def page_html(c, page, body, jsfiles=(), tstrings=None):
     langs = [dict(code=l, name=I18N[l]['lang_name'], url=alt_url(l, page), dir=I18N[l].get('dir', 'ltr'),
                   switch_label=I18N[l]['js']['sg_switch'], dismiss_label=I18N[l]['js']['sg_dismiss']) for l in CODES]
     ts = dict(L['js']); ts.update(tstrings or {})
-    h.append('<script>window.T=%s;window.LANGS=%s;%s</script>' % (ld(ts), ld(langs), ('window.URLSHORT_API=%s;' % ld(CFG['api'])) if page.get('tool') == 'home' else ''))
+    h.append('<script>window.T=%s;window.LANGS=%s;%s</script>' % (ld(ts), ld(langs), ('window.URLSHORT_API=%s;window.URLSHORT_TS=%s;' % (ld(CFG['api']), ld(CFG.get('turnstile_site_key', '')))) if page.get('tool') == 'home' else ''))
     for j in list(jsfiles) + ['site.js']: h.append('<script src="/js/%s" defer></script>' % j)
     h += ['</body>', '</html>']
     return '\n'.join(h)
