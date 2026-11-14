@@ -19,6 +19,7 @@ Type your number and an optional first message. You get a WhatsApp link that ope
 <input id="wa-num" type="tel" inputmode="numeric" autocomplete="off" placeholder="98765 43210" style="padding:.8rem 1rem;border:1px solid #c9cdea;border-radius:10px;font-size:1rem"></label>
 <label style="display:grid;gap:.3rem;font-weight:600">Ready-made message (optional)
 <textarea id="wa-msg" rows="3" maxlength="500" placeholder="Hi, I would like to know the price." style="padding:.8rem 1rem;border:1px solid #c9cdea;border-radius:10px;font-size:1rem;font-family:inherit"></textarea></label>
+<button class="btn" type="submit" style="justify-self:start">Generate link and QR code</button>
 <p id="wa-err" role="alert" style="margin:0;color:#b42318"></p>
 </form>
 
