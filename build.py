@@ -92,8 +92,7 @@ def footer(c, page):
     note = ('<p class="en-only">%s</p>' % esc(t['foot_note'])) if c != 'en' else ''
     return ('<footer class="site-footer"><div class="wrap"><div class="foot-grid">'
       '<div class="foot-about"><p class="foot-brand">urlshort<span class="logo-tld">.tr</span></p><p>%s</p></div>'
-      '<div><h2 class="foot-h">%s</h2><ul><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="/report-link/"%s>%s</a></li><li><a href="/link-click-counter/" lang="en">Click counter</a></li></ul></div>'
-      '<li><a href="/whatsapp-link-generator/" lang="en">WhatsApp link generator</a></li>'
+      '<div><h2 class="foot-h">%s</h2><ul><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="%s">%s</a></li><li><a href="/report-link/"%s>%s</a></li><li><a href="/link-click-counter/" lang="en">Click counter</a></li><li><a href="/whatsapp-link-generator/" lang="en">WhatsApp link generator</a></li></ul></div>'
       '<div><h2 class="foot-h">%s</h2><ul>%s<li><a href="/blog/"%s>%s</a></li></ul></div>'
       '<div><h2 class="foot-h">%s</h2><ul><li><a href="/about/"%s>%s</a></li><li><a href="/editorial-policy/"%s>%s</a></li><li><a href="/contact/"%s>%s</a></li><li><a href="/privacy/"%s>%s</a></li><li><a href="/terms/"%s>%s</a></li><li><a href="/disclaimer/"%s>%s</a></li></ul></div>'
       '</div><div class="foot-lang"><h2 class="foot-h">%s</h2>%s</div>%s%s'
@@ -129,7 +128,7 @@ def page_html(c, page, body, jsfiles=(), tstrings=None):
     if CFG['google_verification']: h.append('<meta name="google-site-verification" content="%s">' % esc(CFG['google_verification']))
     if CFG['bing_verification']: h.append('<meta name="msvalidate.01" content="%s">' % esc(CFG['bing_verification']))
     for s in page.get('schema', []): h.append('<script type="application/ld+json">%s</script>' % ld(s))
-    h += ['<link rel="icon" href="%s">' % ICON, '<link rel="preload" href="/css/fonts/display.woff2" as="font" type="font/woff2" crossorigin>',
+    h += ['<link rel="icon" href="/favicon.ico" sizes="48x48">', '<link rel="icon" href="/favicon.svg" type="image/svg+xml">', '<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">', '<link rel="apple-touch-icon" href="/apple-touch-icon.png">', '<link rel="preload" href="/css/fonts/display.woff2" as="font" type="font/woff2" crossorigin>',
           '<link rel="stylesheet" href="/css/style.css">']
     h.append('<meta name="referrer" content="strict-origin-when-cross-origin">')
     if CFG.get('adsense_client'):
@@ -214,7 +213,7 @@ def build_home(c):
     page = dict(title=m['home_title'], raw_title=False, description=m['home_desc'], path=path, tkey='home', nav='shorten', tool='home',
                 schema=[app_ld(c, m['home_title'], m['home_desc'], path), faq_ld(h['faq'], c),
                         {'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'urlshort.tr', 'url': SITE + '/', 'inLanguage': c},
-                        {'@context': 'https://schema.org', '@type': 'Organization', 'name': 'urlshort.tr', 'url': SITE + '/', 'logo': SITE + '/og.png', 'email': CFG['email'],
+                        {'@context': 'https://schema.org', '@type': 'Organization', 'name': 'urlshort.tr', 'url': SITE + '/', 'logo': SITE + '/logo-512.png', 'email': CFG['email'],
                          'sameAs': [u for u in (CFG.get('social') or {}).values() if u]}])
     if c == 'en': page['title'] = m['home_title']
     write(path, page_html(c, page, body, ['qrcode.js', 'qrtool.js', 'shortener.js']))
@@ -337,7 +336,7 @@ def build_pages():
 def build_files():
     shutil.copytree(os.path.join(HERE, 'assets', 'css'), os.path.join(OUT, 'css'))
     shutil.copytree(os.path.join(HERE, 'assets', 'js'), os.path.join(OUT, 'js'))
-    for f in ('og.png',):
+    for f in ('og.png', 'favicon.ico', 'favicon.svg', 'favicon-48.png', 'favicon-192.png', 'apple-touch-icon.png', 'logo-512.png', 'logo.svg', 'logo-wordmark.png'):
         if os.path.exists(os.path.join(HERE, 'assets', f)): shutil.copy(os.path.join(HERE, 'assets', f), OUT)
     open(os.path.join(OUT, '.nojekyll'), 'w').write('')
     open(os.path.join(OUT, 'CNAME'), 'w').write('urlshort.tr\n')
