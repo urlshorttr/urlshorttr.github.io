@@ -8,7 +8,19 @@
   var result = $('result'), shortLink = $('shortLink'), resLong = $('resLong'), canvas = $('qrCanvas');
   var copyBtn = $('copyBtn'), openLink = $('openLink');
   var recentBox = $('recent'), recentList = $('recentList'), clearRecent = $('clearRecent');
-  var STORE = 'urlshort:v2', current = null;
+  var STORE = 'urlshort:v2', current = null, tsId = null, tsToken = '', TS = window.URLSHORT_TS || '';
+  // Cloudflare Turnstile (human check). Only loads when a site key is set in config.json.
+  function initTS() {
+    if (!TS || !$('ts')) return;
+    var sc = document.createElement('script');
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true;
+    sc.onload = function () {
+      if (!window.turnstile) return;
+      tsId = window.turnstile.render('#ts', { sitekey: TS, callback: function (t) { tsToken = t; }, 'expired-callback': function () { tsToken = ''; }, 'error-callback': function () { tsToken = ''; } });
+    };
+    document.head.appendChild(sc);
+  }
+  function resetTS() { tsToken = ''; try { if (tsId !== null && window.turnstile) window.turnstile.reset(tsId); } catch (e) {} }
 
   function say(msg, kind) { status.textContent = msg || ''; status.className = 'status' + (kind ? ' ' + kind : ''); }
 
@@ -29,7 +41,7 @@
     if (!API) return Promise.reject({ code: 'setup' });
     var ctl = window.AbortController ? new AbortController() : null;
     var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 10000);
-    var body = JSON.stringify({ url: longUrl, alias: custom || '' });
+    var body = JSON.stringify({ url: longUrl, alias: custom || '', token: tsToken });
     return fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: body, signal: ctl ? ctl.signal : undefined })
       .then(function (r) { return r.json(); })
       .then(function (d) { clearTimeout(timer); if (d && d.shorturl) return d.shorturl; throw { code: d && d.errorcode }; },
@@ -38,6 +50,8 @@
   function explain(e) {
     var c = e && e.code;
     if (c === 'setup') return T.setup;
+    if (c === 7) return T.err7 || 'Please complete the human check and try again.';
+    if (c === 8) return T.err8 || T.err4;
     if (c === 1) return T.err1; if (c === 2) return T.err2; if (c === 3) return T.err3; if (c === 4) return T.err4;
     return T.net;
   }
@@ -78,12 +92,13 @@
     if (n.error) { say(n.error, 'err'); input.focus(); return; }
     var custom = alias ? alias.value.trim() : '';
     if (custom && !/^[A-Za-z0-9_]{5,30}$/.test(custom)) { say(T.alias_bad, 'err'); alias.focus(); return; }
+    if (TS && !tsToken) { say(T.err7 || 'Please complete the human check and try again.', 'err'); return; }
     var hit = load().cache[n.url + '|' + custom];
     if (hit) { show(n.url, hit); say(T.seen_before, 'ok'); return; }
     btn.disabled = true; btn.textContent = T.shortening; say(T.contacting);
     request(n.url, custom).then(function (u) { show(n.url, u); remember(n.url, u, custom); say(T.done, 'ok'); },
       function (err) { say(explain(err), 'err'); })
-      .then(function () { btn.disabled = false; btn.textContent = T.btn_shorten; });
+      .then(function () { btn.disabled = false; btn.textContent = T.btn_shorten; resetTS(); });
   });
 
   copyBtn.addEventListener('click', function () {
@@ -99,5 +114,5 @@
   $('dlPng').addEventListener('click', function () { if (current) QRTool.downloadPNG(current, dlo, 'urlshort-qr.png'); });
   $('dlSvg').addEventListener('click', function () { if (current) QRTool.downloadSVG(current, dlo, 'urlshort-qr.svg'); });
   if (clearRecent) clearRecent.addEventListener('click', function () { save({ cache: {}, recent: [] }); renderRecent(); });
-  renderRecent();
+  renderRecent(); initTS();
 })();
