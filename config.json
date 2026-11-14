@@ -3,7 +3,7 @@
   "site_name": "urlshort.tr",
   "email": "contact@urlshort.tr",
   "api": "https://urlshort.tr/api/shorten",
-  "turnstile_site_key": "YAHAN_SITE_KEY",
+  "turnstile_site_key": "0x4AAAAAAF_VQJW43SG2Opyy",
   "adsense_client": "",
   "google_verification": "",
   "bing_verification": "",
