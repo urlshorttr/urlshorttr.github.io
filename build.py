@@ -194,6 +194,7 @@ def build_home(c):
 <label class="sr-only" for="longUrl">{esc(h['label_url'])}</label>
 <div class="bar"><input id="longUrl" name="url" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="{esc(h['placeholder'])}" dir="ltr"><button id="shortenBtn" class="btn" type="submit">{esc(h['btn_shorten'])}</button></div>
 <details class="opt"><summary>{esc(h['opt_summary'])}</summary><div class="opt-body"><label for="alias">{esc(h['opt_label'])}</label><input id="alias" name="alias" type="text" maxlength="30" autocomplete="off" spellcheck="false" placeholder="{esc(h['opt_placeholder'])}" dir="ltr"><p class="hint">{esc(h['opt_hint'])}</p></div></details>
+<div id="ts" class="ts"></div>
 <p id="status" class="status" role="status" aria-live="polite"></p>
 </form>
 <div id="result" class="result" hidden>
